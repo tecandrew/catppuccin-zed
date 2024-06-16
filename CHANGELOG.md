@@ -1,8 +1,13 @@
 # Changelog
 
-## [Unreleased](https://github.com/catppuccin/zed/tree/HEAD)
+## [0.2.8](https://github.com/catppuccin/zed/tree/0.2.8)
 
-[Full Changelog](https://github.com/catppuccin/zed/compare/0.2.7...HEAD)
+[Full Changelog](https://github.com/catppuccin/zed/compare/0.2.7....0.2.8)
+
+**Fixed bugs:**
+
+- Zed Collab contributors were too colored
+- Transparency wasn't matching Catppuccin VS Code
 
 **Fixed bugs:**
 
