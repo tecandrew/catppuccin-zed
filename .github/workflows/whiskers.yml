@@ -24,9 +24,9 @@ jobs:
         run: |
           ${{ env.RUN }} --check > whiskers_output.txt 2>&1 || true
           echo "### Whiskers Diff Output" >> $GITHUB_STEP_SUMMARY
-          echo "```diff"
+          echo "\`\`\`diff"
           cat whiskers_output.txt >> $GITHUB_STEP_SUMMARY
-          echo "```"
+          echo "\`\`\`"
       - run: ${{ env.RUN }}
       - name: Verify JSON
         run: cat themes/catppuccin-mauve.json | jq -n
