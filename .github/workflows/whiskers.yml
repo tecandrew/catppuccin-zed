@@ -33,4 +33,4 @@ jobs:
           echo "</details>" >> $GITHUB_STEP_SUMMARY
       - run: ${{ env.RUN }}
       - name: Verify JSON
-        run: cat themes/catppuccin-mauve.json | jq -n
+        run: cat themes/catppuccin-mauve.json | jq
