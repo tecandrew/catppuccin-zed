@@ -45,7 +45,7 @@ whiskers:
                 "surface.background": "#{{ c.mantle.hex }}",
                 "background": "#{{ c.base.hex }}",
                 "element.background": "#{{ c.crust.hex }}",
-                "element.hover": "#{{ c.surface1 | mod(opacity=0.3) | get(key="hex") }}",
+                "element.hover": "#{{ c.surface2 | mod(opacity=0.3) | get(key="hex") }}",
                 "element.active": "#{{ c.surface2 | mod(opacity=0.3) | get(key="hex") }}",
                 "element.selected": "#{{ c.surface0 | mod(opacity=0.3) | get(key="hex") }}",
                 "element.disabled": "#{{ c.overlay0.hex }}",
@@ -403,12 +403,12 @@ whiskers:
                     "keyword.type": {
                         "color": "#{{ c.mauve.hex }}",
                         "font_style": null,
-                        "font_weight": null
+                        "font_weight": null,
                     },
                     "keyword.coroutine": {
                         "color": "#{{ c.mauve.hex }}",
                         "font_style": null,
-                        "font_weight": null,
+                        "font_weight": null
                     },
                     "keyword.function": {
                         "color": "#{{ c.mauve.hex }}",
