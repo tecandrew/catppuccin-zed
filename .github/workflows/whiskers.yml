@@ -25,9 +25,11 @@ jobs:
           ${{ env.RUN }} --check > whiskers_output.txt 2>&1 || true
           echo "### Whiskers Diff Output" >> $GITHUB_STEP_SUMMARY
           echo "<details>" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`diff" >> $GITHUB_STEP_SUMMARY
           cat whiskers_output.txt >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
           echo "</details>" >> $GITHUB_STEP_SUMMARY
       - run: ${{ env.RUN }}
       - name: Verify JSON
