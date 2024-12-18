@@ -10,9 +10,16 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: rm -f themes/*.json
+      - name: Verify Checked-In JSON
+        run: cat themes/catppuccin-mauve.json | jq
       - uses: actions-rust-lang/setup-rust-toolchain@v1
       - run: cargo install catppuccin-whiskers@=2.5.1
+      - name: Verify Generated JSON
+        run: ${{ env.RUN }}
+      - run: cat themes/catppuccin-mauve.json | jq
+
+      # diffs against latest release
+      - run: rm -f themes/*.json
       - name: Get Latest Release Asset
         run: |
           curl -s https://api.github.com/repos/catppuccin/zed/releases/latest \
@@ -20,7 +27,7 @@ jobs:
           | cut -d : -f 2,3 \
           | tr -d \" \
           | wget -qi - -P themes/
-      - name: Test Against Latest Release
+      - name: Check Against Latest Release
         run: |
           ${{ env.RUN }} --check > whiskers_output.txt 2>&1 || true
           echo "### Whiskers Diff Output" >> $GITHUB_STEP_SUMMARY
@@ -31,6 +38,3 @@ jobs:
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
           echo "</details>" >> $GITHUB_STEP_SUMMARY
-      - run: ${{ env.RUN }}
-      - name: Verify JSON
-        run: cat themes/catppuccin-mauve.json | jq
